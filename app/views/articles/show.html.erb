@@ -9,3 +9,10 @@
 </p>
 
 <%= link_to "Articles List" , articles_path %>
+
+<%= link_to "수정", edit_article_path(@article) %>
+
+<%= link_to "삭제",article_path(@article), method: :delete %>
+<%= link_to "전체목록",article_path %>
+
+
