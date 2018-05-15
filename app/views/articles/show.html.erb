@@ -16,3 +16,23 @@
 <%= link_to "전체목록",article_path %>
 
 
+<p>
+    <h1>comments</h1>
+    <ul id="comments">
+        <% @article.comments.each do |comment| %>
+            <il><%= comment.content %>
+                <%= link_to '삭제', comment_path(comment), :method => :delete,
+                    data: {confirm:"정말로 삭제하시겠습니까?"} %>
+                    
+            </il>
+            <%end%>
+            </ul>
+</p>
+
+<p>
+    <%= form_for :comment, url: article_comments_path(@article.id) do |f| %>
+        <%= f.text_area :content %>
+        <%= f.submit %>
+        <%end%>
+</p>
+
